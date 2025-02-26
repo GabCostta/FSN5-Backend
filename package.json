@@ -1,0 +1,22 @@
+{
+  "name": "fsn5-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma:migrate": "npx prisma migrate dev --name init",
+    "prisma:seed": "npx prisma db seed",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.4.1"
+  }
+}
