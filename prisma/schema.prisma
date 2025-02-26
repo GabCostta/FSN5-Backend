@@ -26,7 +26,7 @@ model Disciplina {
 model Aluno {
   id         Int          @id @default(autoincrement())
   nome       String
-  dataNascimento Date
+  dataNascimento DateTime
   matriculas Matricula[]
 }
 
