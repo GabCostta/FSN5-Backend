@@ -7,34 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Professor {
-  id         Int          @id @default(autoincrement())
-  nome       String
-  departamento String
-  disciplinas Disciplina[]
-}
-
-model Disciplina {
-  id          Int        @id @default(autoincrement())
-  nome        String
-  cargaHoraria Int
-  professor   Professor? @relation(fields: [professorId], references: [id])
-  professorId Int?
-  matriculas  Matricula[]
-}
-
 model Aluno {
-  id         Int          @id @default(autoincrement())
-  nome       String
-  dataNascimento DateTime
-  matriculas Matricula[]
+  id        Int      @id @default(autoincrement())
+  nome      String
+  idade     Int
+  boletim   Boletim[]
 }
 
-model Matricula {
-  id           Int        @id @default(autoincrement())
-  aluno        Aluno      @relation(fields: [alunoId], references: [id])
-  alunoId      Int
-  disciplina   Disciplina @relation(fields: [disciplinaId], references: [id])
-  disciplinaId Int
-  dataMatricula DateTime @default(now())
+model Professor {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  disciplina String
+}
+
+model Boletim {
+  id          Int      @id @default(autoincrement())
+  alunoId     Int      @unique
+  logica      Float
+  javascript  Float
+  typescript  Float
+  node        Float
+  angular     Float
+  react       Float
+  aluno       Aluno    @relation(fields: [alunoId], references: [id])
 }
