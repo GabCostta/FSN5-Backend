@@ -1,7 +1,8 @@
-# Oficina-02 FSN5-Backend
+# Projeto FSN5-Backend
 
 ## 📚 Tecnologias Utilizadas
 
+- **React**
 - **Node.js**
 - **Prisma ORM**
 - **PostgreSQL**
@@ -86,3 +87,8 @@ npx prisma studio
 - Diagrama ER gerado com sucesso
 - Prisma Studio rodando perfeitamente ✅
 
+---
+
+## 💻 Frontend em React Vite
+
+O frontend do projeto está localizado na pasta `oficina-02` para a visualização do site.
