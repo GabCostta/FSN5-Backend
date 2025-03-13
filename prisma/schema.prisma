@@ -2,9 +2,20 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Disciplina {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  professor  Professor @relation(fields: [professorId], references: [id], name: "ProfessorDisciplina")
+  professorId Int
 }
 
 model Aluno {
@@ -18,6 +29,7 @@ model Professor {
   id         Int      @id @default(autoincrement())
   nome       String
   disciplina String
+  disciplinas Disciplina[] @relation(name: "ProfessorDisciplina")
 }
 
 model Boletim {
